@@ -1,13 +1,22 @@
 import React from 'react';
-import { MessageSquare, Plus, Settings, User, Zap, Trash2 } from 'lucide-react';
+import { MessageSquare, Plus, Settings, User, Zap, Trash2, X } from 'lucide-react';
 
-const Sidebar = ({ chats, onClearChat, isOpen }) => {
+const Sidebar = ({ chats, onClearChat, isOpen, onClose }) => {
   return (
     <div className={`fixed md:relative z-50 h-full transition-all duration-300 ease-in-out ${isOpen ? 'w-64 translate-x-0' : 'w-0 -translate-x-full md:w-64 md:translate-x-0'} bg-[#0a0a0a] border-r border-gray-800 flex flex-col justify-between p-4`}>
       <div className="flex-1 overflow-y-auto">
-        <div className="flex items-center gap-2 mb-8 px-2">
-          <Zap className="text-white fill-white" size={24} />
-          <span className="text-xl font-bold tracking-tighter">JINIM AI</span>
+        <div className="flex items-center justify-between mb-8 px-2">
+          <div className="flex items-center gap-2">
+            <Zap className="text-white fill-white" size={24} />
+            <span className="text-xl font-bold tracking-tighter">JINIM AI</span>
+          </div>
+          {/* Close button for mobile */}
+          <button 
+            className="md:hidden p-1 text-gray-400 hover:text-white" 
+            onClick={onClose}
+          >
+            <X size={20} />
+          </button>
         </div>
         
         <button className="w-full flex items-center gap-3 px-3 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors mb-6">

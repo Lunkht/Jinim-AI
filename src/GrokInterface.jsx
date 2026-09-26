@@ -72,6 +72,7 @@ const JinimInterface = () => {
 
       <Sidebar 
         isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
         chats={['AI Future', 'Quantum Physics', 'Latest News', 'Coding Help']} 
         onClearChat={clearChat}
       />
