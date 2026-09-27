@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MessageSquare, Plus, Settings, User, Zap, Trash2, X } from 'lucide-react';
+import { MessageSquare, Plus, Settings, User, Zap, Trash2 } from 'lucide-react';
 
 const Sidebar = ({ chats, onClearChat, isOpen, onClose }) => {
   useEffect(() => {
@@ -31,18 +31,9 @@ const Sidebar = ({ chats, onClearChat, isOpen, onClose }) => {
       >
         <div className="flex h-full w-64 flex-col justify-between overflow-y-auto p-4">
           <div className="flex-1 overflow-y-auto">
-            <div className="mb-8 flex items-center justify-between px-2">
-              <div className="flex items-center gap-2">
-                <Zap className="text-white fill-white" size={24} />
-                <span className="text-xl font-bold tracking-tighter">JINIM AI</span>
-              </div>
-              <button
-                onClick={onClose}
-                className="rounded-lg p-1 text-gray-400 transition-colors hover:bg-[#1a1a1a] hover:text-white"
-                aria-label="Close menu"
-              >
-                <X size={20} />
-              </button>
+            <div className="mb-8 flex items-center gap-2 px-2">
+              <Zap className="text-white fill-white" size={24} />
+              <span className="text-xl font-bold tracking-tighter">JINIM AI</span>
             </div>
 
             <button className="mb-6 flex w-full items-center gap-3 rounded-full bg-white px-3 py-2 font-medium text-black transition-colors hover:bg-gray-200">
