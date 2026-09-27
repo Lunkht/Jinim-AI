@@ -16,7 +16,7 @@ const JinimInterface = () => {
 
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(() => window.innerWidth >= 768);
   const messagesEndRef = useRef(null);
 
   // Save messages to localStorage whenever they change
@@ -61,24 +61,19 @@ const JinimInterface = () => {
   };
 
   return (
-    <div className="flex h-screen bg-black text-gray-100 font-sans relative overflow-hidden">
-      {/* Overlay for mobile menu */}
-      {isMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 md:hidden" 
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
-
-      <Sidebar 
+    <div className="relative flex h-screen overflow-hidden bg-black font-sans text-gray-100">
+      <Sidebar
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        chats={['AI Future', 'Quantum Physics', 'Latest News', 'Coding Help']} 
+        chats={['AI Future', 'Quantum Physics', 'Latest News', 'Coding Help']}
         onClearChat={clearChat}
       />
-      
-      <div className="flex-1 flex flex-col relative">
-        <ChatHeader onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
+
+      <div className="relative flex min-w-0 flex-1 flex-col">
+        <ChatHeader
+          isMenuOpen={isMenuOpen}
+          onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
+        />
 
         <div className="flex-1 overflow-y-auto p-4 md:p-0">
           <div className="max-w-3xl mx-auto py-8 space-y-8">
