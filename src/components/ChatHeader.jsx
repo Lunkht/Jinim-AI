@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Github, MoreVertical, Zap, Menu, X } from 'lucide-react';
+import { Twitter, Github, MoreVertical, Zap, Menu } from 'lucide-react';
 
 const ChatHeader = ({ onMenuToggle, isMenuOpen }) => {
   return (
@@ -7,13 +7,13 @@ const ChatHeader = ({ onMenuToggle, isMenuOpen }) => {
       <div className="flex items-center gap-2">
         <button
           onClick={onMenuToggle}
-          className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-[#1a1a1a] hover:text-white"
+          className="-ml-2 rounded-lg p-2 text-gray-400 transition-colors hover:bg-[#1a1a1a] hover:text-white"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu size={24} />
         </button>
-        <div className={`items-center gap-2 ${isMenuOpen ? 'hidden' : 'flex'}`}>
+        <div className="ml-2 flex items-center gap-2 md:hidden">
           <Zap className="text-white fill-white" size={20} />
           <span className="font-bold">JINIM AI</span>
         </div>
